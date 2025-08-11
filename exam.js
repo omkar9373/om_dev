@@ -1,29 +1,30 @@
-function savevalue() {
-    // document.getElementById("btn").addEventListener("click", function (e) {
-    //     e.preventDefault();
-        var user = document.getElementById("username").value;
 
+const num1 = document.getElementById('num_1');
+const num2 = document.getElementById('num_2');
 
-        var pass = document.getElementById("password").value;
-        // var sub = document.getElementById("sub").value;
+const buttons = document.querySelectorAll('button');
+const output = document.createElement('div');
+output.id = 'output';
+document.body.appendChild(output);
 
-        // let arry = [user, pass, sub];
-        console.log("Name:-",user);
-    // })
+buttons.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        let val1 = parseFloat(num1.value);
+        let val2 = parseFloat(num2.value);
+        let result;
 
-}
+        if (btn.innerHTML.includes('fa-plus')) {
+            result = val1 + val2;
+        } else if (btn.innerHTML.includes('fa-minus')) {
+            result = val1 - val2;
+        } else if (btn.innerHTML.includes('fa-xmark')) {
+            result = val1 * val2;
+        } else if (btn.innerHTML.includes('fa-divide')) {
+            result = val2 !== 0 ? val1 / val2 : 'Cannot divide by zero';
+        } else {
+            return; 
+        }
 
-function printPara(){
-
-    var printPara = document.getElementById("paraIdFont").outerHTML
-    console.log(printPara)
-
-}
-function enterMouse(){
-    var entry = document.getElementById("boxId").innerText
-    console.log("Enter mouse",entry)
-}
-function leaveMouse(){
-    var outsideEntry = document.getElementById("boxId").innerText
-    console.log("mouse Out",outsideEntry)
-}
+        output.textContent = `Result: ${result}`;
+    });
+});
