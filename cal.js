@@ -1,6 +1,6 @@
- let a=[1,2,3,4,5,6,7];
+ 
     // a.push(4,'subject');
-    console.log(a);
+   
 
 // a.pop();
 // console.log(a);
@@ -18,5 +18,17 @@
 // console.log(a);
 
 
+// let arr= [1,2,4]
 
- 
+// arr.map((val,index)=>{
+//     console.log(val+index);
+//     return(val+index)
+//     })
+    
+
+let a=[11,25,42,15,36,75];
+   let d= a.filter((val)=>{
+let c= val%2===0;
+    })
+    console.log(d);
+    
